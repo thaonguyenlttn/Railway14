@@ -188,14 +188,13 @@ limit 1 ;
 SELECT       *
 FROM        `Account`
 Where        character_length(FullName) = (Select Max(character_length(FullName)) from Account)
-ORDER BY     FullName DESC
 LIMIT 1;
 
 Lấy ra thông tin account có full name dài nhất và thuộc phòng ban có id =3
 SELECT       *
 FROM        `Account`
 Where        character_length(FullName) = (Select Max(character_length(FullName)) from Account) and departmentID = 3
-ORDER BY     FullName DESC;
+;
 
 Lấy ra tên group đã tham gia trước ngày 20/12/2019
 SELECT       GroupName
@@ -232,7 +231,7 @@ where  DepartmentID = 2;
 Question 11: Lấy ra nhân viên có tên bắt đầu bằng chữ "D" và kết thúc bằng chữ "o"
 SELECT  FULLNAME
 FROM    Account
-WHERE   FullName = 'D%O';
+WHERE   FullName LIKE 'D%O';
 
 Question 12: Xóa tất cả các exam được tạo trước ngày 20/12/2019
 DELETE FROM  Exam
